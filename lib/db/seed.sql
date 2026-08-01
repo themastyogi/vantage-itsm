@@ -54,6 +54,7 @@ CREATE TABLE IF NOT EXISTS users (
   email TEXT NOT NULL UNIQUE,
   password_hash TEXT NOT NULL,
   role user_role NOT NULL DEFAULT 'requester',
+  active BOOLEAN NOT NULL DEFAULT TRUE,
   teams_webhook_opt_in BOOLEAN NOT NULL DEFAULT TRUE,
   email_opt_in BOOLEAN NOT NULL DEFAULT TRUE,
   created_at TIMESTAMPTZ NOT NULL DEFAULT now()

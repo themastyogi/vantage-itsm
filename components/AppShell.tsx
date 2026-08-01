@@ -10,6 +10,7 @@ import {
   Server,
   Bell,
   ShieldCheck,
+  Users,
   LogOut,
 } from "lucide-react";
 
@@ -19,6 +20,7 @@ const NAV = [
   { href: "/changes", label: "Changes", icon: GitPullRequestArrow },
   { href: "/assets", label: "Assets · CMDB", icon: Server },
   { href: "/settings/notifications", label: "Notifications", icon: Bell },
+  { href: "/settings/users", label: "Users", icon: Users, adminOnly: true },
   { href: "/settings/audit", label: "Audit log", icon: ShieldCheck, adminOnly: true },
 ];
 

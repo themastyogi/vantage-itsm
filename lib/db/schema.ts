@@ -51,6 +51,7 @@ export const users = pgTable("users", {
   email: text("email").notNull().unique(),
   passwordHash: text("password_hash").notNull(),
   role: userRole("role").notNull().default("requester"),
+  active: boolean("active").notNull().default(true),
   teamsWebhookOptIn: boolean("teams_webhook_opt_in").notNull().default(true),
   emailOptIn: boolean("email_opt_in").notNull().default(true),
   createdAt: timestamp("created_at", { withTimezone: true })

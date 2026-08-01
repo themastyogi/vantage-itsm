@@ -32,10 +32,10 @@ export async function POST(req: NextRequest) {
   // Constant-shape response whether or not the user exists, to avoid user enumeration.
   const valid = user ? await verifyPassword(password, user.passwordHash) : false;
 
-  if (!user || !valid) {
+  if (!user || !valid || !user.active) {
     await writeAudit({
       actorId: user?.id ?? null,
-      action: "auth.login_failed",
+      action: !user?.active && valid ? "auth.login_blocked_inactive" : "auth.login_failed",
       entityType: "user",
       entityId: user?.id ?? email,
       ipAddress: ip,
